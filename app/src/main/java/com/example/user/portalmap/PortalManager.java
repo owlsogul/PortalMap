@@ -10,7 +10,9 @@ import java.util.HashMap;
 
 public class PortalManager {
 
+    //포탈 데이터
     public HashMap<Integer, PortalData> portalData;
+    //포탈 버튼
     public HashMap<Integer, ImageButton> portalButtons;
 
     public PortalManager(){

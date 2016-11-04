@@ -17,7 +17,6 @@ public class PortalData {
         edgeBuilding[0] = edge1;
         edgeBuilding[1] = edge2;
         portalType = type;
-
     }
 
 }

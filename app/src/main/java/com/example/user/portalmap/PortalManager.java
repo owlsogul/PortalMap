@@ -46,11 +46,11 @@ public class PortalManager {
         //법학관 지하1층 > 후문쪽
         addData(6, 303, -1, 303, 6, PortalData.TYPE_ELEVATOR);
         //310관 지하 5층 > 동판CAU쪽
-        addData(7, 310, -5, 303, -3, PortalData.TYPE_ELEVATOR);
+        addData(7, 310, -5, 310, -3, PortalData.TYPE_ELEVATOR);
         //310관 지하 5층 > 310관 1층
-        addData(8, 310, -5, 303, 1, PortalData.TYPE_ELEVATOR);
+        addData(8, 310, -5, 310, 1, PortalData.TYPE_ELEVATOR);
         //310관 지하 3층 > 310관 1층
-        addData(9, 310, -3, 303, 1, PortalData.TYPE_ESCALATOR);
+        addData(9, 310, -3, 310, 1, PortalData.TYPE_ESCALATOR);
 
     }
 
@@ -65,15 +65,19 @@ public class PortalManager {
         double r = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
 
 
-        Matrix mtrx=new Matrix();
-        ((ImageView)ib).setScaleType(ImageView.ScaleType.MATRIX);
-        mtrx.postRotate((float) degree, x1, y1);
-        ((ImageView)ib).setImageMatrix(mtrx);
+        //Matrix mtrx=new Matrix();
+        //((ImageView)ib).setScaleType(ImageView.ScaleType.MATRIX);
+        //mtrx.postRotate((float) degree, x1, y1);
+        //((ImageView)ib).setImageMatrix(mtrx);
 
-        ib.setRotation((float)degree);
-        ib.setLayoutParams(new FrameLayout.LayoutParams((int)r, 30));
-        ib.setX(x1 + (float)(r/2*(Math.cos(degree) - 1)));
-        ib.setY(y1 + (float)(r/2*Math.sin(degree)));
+        //ib.setRotation((float)degree);
+        //ib.setLayoutParams(new FrameLayout.LayoutParams((int)r, 30));
+        //ib.setX((float) (x1);
+        //ib.setY((float) (y1);
+
+        ib.setLayoutParams(new FrameLayout.LayoutParams(60, 40));
+        ib.setX(x1);
+        ib.setY(y1);
 
 
 
@@ -86,7 +90,22 @@ public class PortalManager {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 final AlertDialog.Builder alertDialog = new AlertDialog.Builder(view.getContext());
                 alertDialog.setTitle("설명");
-                alertDialog.setMessage(portalData.get(id).edges[0] +"(" + portalData.get(id).floors[0]+"층)  <-> " + portalData.get(id).edges[1]+"("+portalData.get(id).floors[1] + "층)\n가는방법 : "+ portalData.get(id).type);
+                String 가는방법 = "";
+                switch(portalData.get(id).type){
+                    case PortalData.TYPE_WALK:
+                        가는방법 = "걸어서";
+                        break;
+                    case PortalData.TYPE_STAIR:
+                        가는방법 = "계단으로";
+                        break;
+                    case PortalData.TYPE_ESCALATOR:
+                        가는방법 = "에스컬레이터로";
+                        break;
+                    case PortalData.TYPE_ELEVATOR:
+                        가는방법 = "엘리베이터로";
+                        break;
+                }
+                alertDialog.setMessage(portalData.get(id).edges[0] +"(" + portalData.get(id).floors[0]+"층) <-> " + portalData.get(id).edges[1]+"("+portalData.get(id).floors[1] + "층)\n가는방법 : "+ 가는방법);
                 alertDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface/*자기자신*/, int i) {

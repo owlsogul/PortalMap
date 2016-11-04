@@ -33,7 +33,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/help"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="25dp"
         android:id="@+id/hSview">
 
         <LinearLayout
@@ -43,8 +43,8 @@
             android:id="@+id/lLayout">
 
             <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="773dp"
+                android:layout_height="432dp"
                 android:id="@+id/sView">
 
                 <FrameLayout

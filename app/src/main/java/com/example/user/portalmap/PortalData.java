@@ -6,19 +6,23 @@ package com.example.user.portalmap;
 
 public class PortalData {
 
-    //ㅅㄷㄴㅅ
+    int id;
+    int edges[] = {0, 0};
+    int floors[] = {0, 0};
+    int type = 0;
+    public final static int
+            TYPE_WALK = 1,
+            TYPE_STAIR = 2,
+            TYPE_ELEVATOR = 3,
+            TYPE_ESCALATOR = 4;
 
-    //연결된 건물의 관을 저장하는 배열
-    protected int edgeBuilding[] = {0 , 0};
-
-    //포탈의 타입에 대한 정보를 저장
-    protected int portalType;
-
-
-    public PortalData(int edge1, int edge2, int type){
-        edgeBuilding[0] = edge1;
-        edgeBuilding[1] = edge2;
-        portalType = type;
+    public PortalData(int id, int edge1, int floor1, int edge2, int floor2, int type) {
+        this.id = id;
+        edges[0] = edge1;
+        floors[0] = floor1;
+        edges[1] = edge2;
+        floors[1] = floor2;
+        this.type = type;
     }
 
 }

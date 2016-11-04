@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                Log.i("TEST", "x : " + motionEvent.getX() + "  y : "  + motionEvent.getY() + " Test : "+ sView.getScrollY() + " height " + iView.getHeight());
                 Log.i("TEST", "rx : " +  motionEvent.getX() + hSview.getScrollX() + "  ry : "  + motionEvent.getY() + sView.getScrollY());
 
                 return false;
